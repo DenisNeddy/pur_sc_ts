@@ -78,15 +78,17 @@ interface IUser {
 interface IData {
   users: IUser[]
 }
+
+type ResponceStatus = IUser[] | undefined;
  
-function assertIUser(users: IUser[] | undefined) {
+function assertIUser(users: ResponceStatus): ResponceStatus {
   if(typeof user !== 'undefined') {
     return users;
   }
   console.error('Пользователи не найдены'); 
 }
 
-async function getUser(url: string): Promise<IUser[] | undefined> {
+async function getUser(url: string): Promise<ResponceStatus> {
     try {
       const response = await axios.get<IData>(url);
       const result: IUser[] = response.data.users;
