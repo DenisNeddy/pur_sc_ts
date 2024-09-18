@@ -25,13 +25,21 @@ let b_413 = a_413.toString();
 // Чтобы вытянуть из объекта примитив, нужн new String(a).valueOf();
 let c_413 = 'строка';
 let d_413 = parseInt(c_413);
-const user_414 = {
+const user_413 = {
     name: 'Вася',
     email: 'vasya@ya.ru',
     login: 'vasya'
 };
-const admin_414 = {
-    name: user_414.name,
+const admin_413 = {
+    name: user_413.name,
     role: 1
 };
-console.log(admin_414);
+console.log(admin_413);
+// ЛУЧШИЙ СПОСОБ ПРЕОБРАЗОВАНИЯ ОБЪЕКТА В ОБЪЕКТ 
+// ФУНКЦИЯ MAPING-a
+function userToAdmin_413(user) {
+    return {
+        name: user_413.name,
+        role: 1
+    };
+}
