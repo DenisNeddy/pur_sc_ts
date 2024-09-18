@@ -13,16 +13,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
-function getUser() {
+const url = 'https://dummyjson.com/users';
+var Gender;
+(function (Gender) {
+    Gender["male"] = "male";
+    Gender["female"] = "female";
+})(Gender || (Gender = {}));
+function assertIUser(users) {
+    if (typeof user !== 'undefined') {
+        return users;
+    }
+    console.error('Шел бы ты нахуй петушок');
+}
+function getUser(url) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield axios_1.default.get('https://dummyjson.com/users');
-            console.log(response.data.users);
+            const response = yield axios_1.default.get(url);
+            const result = response.data.users;
+            let fuck = undefined;
+            return assertIUser(fuck);
         }
         catch (error) {
-            console.error(error);
+            if (axios_1.default.isAxiosError(error)) {
+                console.error(error);
+            }
         }
     });
 }
-getUser();
+getUser(url);
 console.log('cb');
